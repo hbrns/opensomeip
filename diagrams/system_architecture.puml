@@ -1,0 +1,141 @@
+@startuml System Architecture
+
+title SOME/IP Stack System Architecture
+
+package "Application Layer" as App {
+    component [SOME/IP Client] as Client
+    component [SOME/IP Server] as Server
+    component [Service Proxy] as Proxy
+    component [Service Skeleton] as Skeleton
+}
+
+package "Protocol Layer" as Protocol {
+    component [RPC Engine] as RPC
+    component [Event System] as Events
+    component [Service Discovery] as SD
+    component [Transport Protocol] as TP
+}
+
+package "Transport Layer" as Transport {
+    component [UDP Transport] as UDP
+    component [TCP Transport] as TCP
+    component [Multicast Manager] as MCast
+    component [Connection Manager] as ConnMgr
+}
+
+package "Core Layer" as Core {
+    component [Message Serializer] as Serializer
+    component [Message Parser] as Parser
+    component [Session Manager] as SessionMgr
+    component [Error Handler] as ErrorHandler
+}
+
+package "Safety Layer" as Safety {
+    component [Fault Monitor] as FaultMon
+    component [Safety Manager] as SafetyMgr
+    component [Recovery Manager] as RecoveryMgr
+    component [Diagnostic Interface] as Diag
+}
+
+package "Platform Abstraction Layer" as PAL {
+    component [Runtime] as RT
+    component [Communication] as CM
+    component [Memory] as MM
+    component [Data Encoding] as DE
+
+    note right of PAL
+        Organized into four functional
+        domains. CMake selects backends
+        via include-path at build time.
+        No #ifdef in public headers.
+    end note
+}
+
+package "Platform Backends" as Backends {
+    package "POSIX" as POSIX_BE {
+        component [std::thread\nstd::mutex] as POSIX_Thread
+        component [POSIX sockets] as POSIX_Net
+        component [std::make_shared] as POSIX_Mem
+    }
+    package "Zephyr" as Zephyr_BE {
+        component [k_thread\nk_mutex\nk_condvar] as Zephyr_Thread
+        component [zsock_ API] as Zephyr_Net
+        component [k_mem_slab] as Zephyr_Mem
+    }
+    package "FreeRTOS + lwIP" as FreeRTOS_BE {
+        component [xTaskCreate\nxSemaphore] as FreeRTOS_Thread
+        component [lwip sockets] as FreeRTOS_Net
+        component [Static pool] as FreeRTOS_Mem
+    }
+    package "ThreadX + lwIP" as ThreadX_BE {
+        component [tx_thread\nTX_MUTEX] as ThreadX_Thread
+        component [lwip sockets] as ThreadX_Net
+        component [TX_BLOCK_POOL] as ThreadX_Mem
+    }
+}
+
+' Application to Protocol
+Client --> RPC : RPC Calls
+Server --> RPC : RPC Responses
+Proxy --> SD : Service Discovery
+Skeleton --> Events : Event Publishing
+
+' Protocol to Transport
+RPC --> UDP : UDP Messages
+RPC --> TCP : TCP Messages
+SD --> MCast : Multicast Messages
+TP --> UDP : Segmented Messages
+
+' Protocol to Core
+RPC --> Serializer : Serialize Messages
+RPC --> Parser : Parse Messages
+SD --> SessionMgr : Session Management
+Events --> SessionMgr : Event Sessions
+
+' All layers to Safety
+App --> SafetyMgr : Safety Monitoring
+Protocol --> FaultMon : Fault Detection
+Transport --> FaultMon : Transport Faults
+Core --> RecoveryMgr : Error Recovery
+
+' Transport and Core to PAL
+Transport --> RT : Threading &\nSynchronization
+Transport --> CM : Socket API
+Transport --> MM : allocate_message()
+Core --> RT : Synchronization
+Core --> DE : Byte-Order
+
+' PAL to Backends (one backend active at build time)
+RT ..> POSIX_Thread
+RT ..> Zephyr_Thread
+RT ..> FreeRTOS_Thread
+RT ..> ThreadX_Thread
+CM ..> POSIX_Net
+CM ..> Zephyr_Net
+CM ..> FreeRTOS_Net
+CM ..> ThreadX_Net
+MM ..> POSIX_Mem
+MM ..> Zephyr_Mem
+MM ..> FreeRTOS_Mem
+MM ..> ThreadX_Mem
+DE ..> POSIX_Net
+DE ..> Zephyr_Net
+DE ..> FreeRTOS_Net
+DE ..> ThreadX_Net
+
+' Safety to Infrastructure
+SafetyMgr --> RT : Thread Safety
+
+note right of Transport
+    Transport uses only
+    platform:: types -- never
+    std::thread or raw sockets.
+end note
+
+note right of Backends
+    Only one backend is active
+    per build. Selection is via
+    CMake include-path, not #ifdef.
+end note
+
+@enduml
