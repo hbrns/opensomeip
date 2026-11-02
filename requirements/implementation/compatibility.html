@@ -11,13 +11,12 @@
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/libs/html/datatables.min.css?v=4b4fd840" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/needstable.css?v=5e1b6797" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=803738c0" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/common_css/needstable.css?v=7b67799e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-needs/modern.css?v=c1bc121d" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d5a60f39" />
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
@@ -26,11 +25,10 @@
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
     <script src="../_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
-    <script src="../_static/sphinx-needs/libs/html/datatables.min.js?v=8a4aee21"></script>
-    <script src="../_static/sphinx-needs/libs/html/datatables_loader.js?v=a2cae175"></script>
     <script src="../_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C API Requirements" href="c_api.html" />
     <link rel="prev" title="Platform Abstraction Requirements" href="platform.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -56,7 +54,7 @@ forward compatibility, multi-version service support, and reserved identifier
 handling.</p>
 <section id="forward-compatibility">
 <h2>Forward Compatibility<a class="headerlink" href="#forward-compatibility" title="Link to this heading">¶</a></h2>
-<div class="need_container docutils container" id="SNCB-4cb36ee0">
+<div class="need_container docutils container" id="SNCB-f6eabe3d">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_001">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -86,7 +84,7 @@ header length does not match the actual data length.</p>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-89059e92">
+<div class="need_container docutils container" id="SNCB-971f495f">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_002">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -113,7 +111,7 @@ interface versions.</p>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-049d8752">
+<div class="need_container docutils container" id="SNCB-343409d0">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_003">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -140,7 +138,7 @@ SOME/IP messages.</p>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-ec624f3f">
+<div class="need_container docutils container" id="SNCB-a78920e0">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_004">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -166,7 +164,7 @@ Instance and Eventgroup on the port.</p>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-0f94a3ce">
+<div class="need_container docutils container" id="SNCB-24162d3f">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_005">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -196,7 +194,7 @@ independently of Minor Version.</p>
 </section>
 <section id="multi-version-service-support">
 <h2>Multi-Version Service Support<a class="headerlink" href="#multi-version-service-support" title="Link to this heading">¶</a></h2>
-<div class="need_container docutils container" id="SNCB-9e0041f8">
+<div class="need_container docutils container" id="SNCB-a16c1d49">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_010">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -224,7 +222,7 @@ and demultiplex messages by socket, Message ID, and Major Version.</p>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-4bea63f9">
+<div class="need_container docutils container" id="SNCB-3fb089a3">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_011">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -255,7 +253,7 @@ to events of the service version they need.</p>
 </section>
 <section id="reserved-identifier-handling">
 <h2>Reserved Identifier Handling<a class="headerlink" href="#reserved-identifier-handling" title="Link to this heading">¶</a></h2>
-<div class="need_container docutils container" id="SNCB-751183e5">
+<div class="need_container docutils container" id="SNCB-2e210d89">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_020">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -283,7 +281,7 @@ specification: 0x0000 (reserved), 0x0101 (diagnostics), 0x433F (reserved),
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-4f1ff7ad">
+<div class="need_container docutils container" id="SNCB-bc17f1ab">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_021">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -309,7 +307,7 @@ specification: 0x0000 (reserved), 0x0101 (diagnostics), 0x433F (reserved),
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-43aeeb5e">
+<div class="need_container docutils container" id="SNCB-e051b521">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_022">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -336,7 +334,7 @@ events), 0xFFFF (reserved).</p>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-7c6148e7">
+<div class="need_container docutils container" id="SNCB-af0d851d">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_023">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -362,7 +360,7 @@ events), 0xFFFF (reserved).</p>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-ac3e52e8">
+<div class="need_container docutils container" id="SNCB-ec27afa8">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_024">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -391,7 +389,7 @@ events), 0xFFFF (reserved).</p>
 </section>
 <section id="compatibility-informational">
 <h2>Compatibility Informational<a class="headerlink" href="#compatibility-informational" title="Link to this heading">¶</a></h2>
-<div class="need_container docutils container" id="SNCB-81c9a11b">
+<div class="need_container docutils container" id="SNCB-e423d3d8">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_030">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -417,7 +415,7 @@ hosting including version-specific endpoint mapping.</p>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-cea1c414">
+<div class="need_container docutils container" id="SNCB-7c9a7b81">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_010_E01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -443,7 +441,7 @@ hosting including version-specific endpoint mapping.</p>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-09dcfe3b">
+<div class="need_container docutils container" id="SNCB-0a2c5651">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_020_E01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -469,7 +467,7 @@ hosting including version-specific endpoint mapping.</p>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-d5332f08">
+<div class="need_container docutils container" id="SNCB-73709393">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_003_E01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -495,7 +493,7 @@ hosting including version-specific endpoint mapping.</p>
 </tbody>
 </table>
 </div>
-<div class="need_container docutils container" id="SNCB-9f4714a0">
+<div class="need_container docutils container" id="SNCB-0bca84b1">
 <table class="need needs_grid_simple needs_layout_clean needs_style_none needs_type_requirement docutils align-default" id="REQ_COMPAT_001_E01">
 <tbody>
 <tr class="need head row-odd"><td class="need head"><div class="needs_head line-block">
@@ -589,6 +587,7 @@ hosting including version-specific endpoint mapping.</p>
 <li class="toctree-l2"><a class="reference internal" href="#traceability">Traceability</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="c_api.html">C API Requirements</a></li>
 </ul>
 
 <div class="relations">
@@ -596,6 +595,7 @@ hosting including version-specific endpoint mapping.</p>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="platform.html" title="previous chapter">Platform Abstraction Requirements</a></li>
+      <li>Next: <a href="c_api.html" title="next chapter">C API Requirements</a></li>
   </ul></li>
 </ul>
 </div>
